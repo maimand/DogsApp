@@ -1,35 +1,41 @@
 package com.example.dogsapp.Model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-
+@Entity(tableName = "DOGS")
 public class Dog implements Serializable {
-    @SerializedName("bred_for")
-    private  String bred_for;
-    @SerializedName("breed_group")
-    private  String breed_group;
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("id")
     private  int id;
+    @ColumnInfo(name = "bred_for")
+    @SerializedName("bred_for")
+    private  String bred_for;
+    @ColumnInfo(name = "breed_group")
+    @SerializedName("breed_group")
+    private  String breed_group;
+    @ColumnInfo(name = "life_span")
     @SerializedName("life_span")
     private  String life_span;
+    @ColumnInfo(name = "name")
     @SerializedName("name")
     private  String name;
+    @ColumnInfo(name = "origin")
     @SerializedName("origin")
     private  String origin;
+    @ColumnInfo(name = "temperament")
     @SerializedName("temperament")
     private  String temperament;
+    @ColumnInfo(name = "url")
     @SerializedName("url")
     private  String url;
-    @SerializedName("height")
-    private Metric height;
-    @SerializedName("weight")
-    private Metric weight;
 
-    public Dog(String bred_for, String breed_group, int id, String life_span, String name, String origin, String temperament, String url, Metric height, Metric weight) {
+    public Dog(String bred_for, String breed_group, int id, String life_span, String name, String origin, String temperament, String url) {
         this.bred_for = bred_for;
         this.breed_group = breed_group;
         this.id = id;
@@ -38,8 +44,6 @@ public class Dog implements Serializable {
         this.origin = origin;
         this.temperament = temperament;
         this.url = url;
-        this.height = height;
-        this.weight = weight;
     }
 
     public String getBred_for() {
@@ -106,36 +110,7 @@ public class Dog implements Serializable {
         this.url = url;
     }
 
-    public Metric getHeight() {
-        return height;
-    }
 
-    public void setHeight(Metric height) {
-        this.height = height;
-    }
-
-    public Metric getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Metric weight) {
-        this.weight = weight;
-    }
-
-
-
-    public class Metric{
-        private String imprerial;
-        private String metric;
-
-        public String getImprerial() {
-            return imprerial;
-        }
-
-        public String getMetric() {
-            return metric;
-        }
-    }
 }
 
 
