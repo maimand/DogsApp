@@ -34,8 +34,11 @@ public class Dog implements Serializable {
     @ColumnInfo(name = "url")
     @SerializedName("url")
     private  String url;
+    private boolean isShow = false;
 
-    public Dog(String bred_for, String breed_group, int id, String life_span, String name, String origin, String temperament, String url) {
+
+
+    public Dog(String bred_for, String breed_group, int id, String life_span, String name, String origin, String temperament, String url, boolean isShow) {
         this.bred_for = bred_for;
         this.breed_group = breed_group;
         this.id = id;
@@ -44,6 +47,15 @@ public class Dog implements Serializable {
         this.origin = origin;
         this.temperament = temperament;
         this.url = url;
+        this.isShow = isShow;
+    }
+
+    public boolean isShow() {
+        return isShow;
+    }
+
+    public void setShow(boolean show) {
+        isShow = show;
     }
 
     public String getBred_for() {
